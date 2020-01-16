@@ -14,7 +14,7 @@
     </header>
     <main></main>
     <script>
-      fetch("http://wynpics.herokuapp.com/cohorts/35")
+      fetch("//wynpics.herokuapp.com/cohorts/35")
         .then(response => response.json())
         .then(students => {
           students.sort((student1, student2) => student1.lastName < student2.lastName ? -1 : 1)
