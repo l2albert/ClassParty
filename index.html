@@ -14,17 +14,7 @@
     </header>
     <main></main>
     <script>
-      fetch("//wynpics.herokuapp.com/cohorts/35")
-        .then(response => response.json())
-        .then(students => {
-          students.sort((student1, student2) => student1.lastName < student2.lastName ? -1 : 1)
-          document.querySelector('main').innerHTML = students.map(student => (
-            `<div class="student">
-              <h3>${student.firstName} ${student.lastName}</h3>
-              <img src="${student.imageUrl}" alt="${student.firstName}${student.lastName}"/>
-            </div>`
-          )).join('')
-        })
+      // ... JS code goes here!
     </script>
   </body>
 </html>
