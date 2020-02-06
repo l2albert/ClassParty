@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,6 +16,41 @@
     <main></main>
     <script>
       // ... JS code goes here!
+
+      fetch('http://wynpics.herokuapp.com/cohorts/36').then(
+        resp => {
+          return resp.json();
+        }
+      ).then(
+        studentJson => {
+
+          let giantHTML = '';
+
+          for (i=0; i < studentJson.length; i++) {
+            console.log('---');
+            // console.log(studentJson[i].firstName);
+            // console.log(studentJson[i].lastName);
+            // console.log(studentJson[i].imageUrl);
+
+            let oneStudentsHtml = '';
+            let fullName = studentJson[i].firstName + ' ' + studentJson[i].lastName;
+            let nameHTML = '<h3>' + fullName + '</h3>';
+            let imgHTML = '<img src="' + studentJson[i].imageUrl + '" alt="' + fullName + '" />'
+            oneStudentsHtml = '<div class="student">' + nameHTML + imgHTML + '</div>';
+            giantHTML = giantHTML + oneStudentsHtml;
+          }
+
+          console.log(giantHTML);
+          // html = 'a bunch of stuff'
+          let mainEl = document.querySelector('main');
+          mainEl.innerHTML = giantHTML;
+
+        }
+
+      ).catch(
+
+      );
+
     </script>
   </body>
 </html>
